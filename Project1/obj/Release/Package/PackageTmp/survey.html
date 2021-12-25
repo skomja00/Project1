@@ -1,0 +1,313 @@
+﻿<!DOCTYPE html>
+<html xmlnsd="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Online Survey</title>
+    <link rel="icon" type="image/svg" href="Images/check2-circle.svg">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!--Use Bootstrap CSS and JavaScript from the Content Delivery Network with local style overrides in Content/site.css-->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="Content/site.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!--<script src="Scripts/SubmitSurvey.js"></script> When publishing, Cannot create folder 'Scripts'.  Access is denied. -->
+
+</head>
+<body>
+    <div class="container">
+        <main>
+            <form id="surveyForm" method="post" action="survey.aspx" runat="server">
+
+                <div class="row jumbotron">
+                    <!--<input type="submit" class="btn btn-primary floater" id="submitSurvey" name="submitSurvey" value="Submit" />-->
+                    <input type="button" class="btn btn-primary floater" id="submitsurvey" onclick="SubmitSurvey();" name="submitsurvey" value="Submit" />
+                </div>
+
+                <h2 class="text-center">James Skomsky Student Feedback Survey</h2>
+                <h3 class="text-center">Please give your input, and click submit when you're done.</h3>
+
+                <p class="sectionHeader">Please provide your information.</p>
+
+                <!--Student Name-->
+                <div class="form-group">
+                    <label class="col-sm-2" for="studentName">Student Name</label><br />
+                    <input class="form-control col-sm-6 col-sm-offset-2" name="studentName" type="text" id="studentName" value="">
+                </div>
+
+                <!--Student Id-->
+                <div class="form-group">
+                    <label class="col-sm-2" for="studentId">Student Id</label><br />
+                    <input class="form-control col-sm-6 col-sm-offset-2" name="studentId" type="text" id="studentId" value="">
+                </div>
+
+                <!--Courses-->
+                <div class="form-group">
+                    <label class="col-sm-2" for="course">Select a Course</label>
+                    <select class="form-control col-sm-6 col-sm-offset-2" name="course" id="course">
+                        <option selected="selected" disabled="disabled">
+                            -- Select a Course --
+                        </option>
+                        <option value="CIS 3344 Web Client Scripting - Professor Kyvernitis">
+                            CIS 3344 Web Client Scripting - Professor Kyvernitis
+                        </option>
+                        <option value="CIS 3344 Web Client Scripting - Professor Pascucci">
+                            CIS 3344 Web Client Scripting - Professor Pascucci
+                        </option>
+                        <option value="CIS 3342 Server-Side Web Application Development">
+                            CIS 3342 Server-Side Web Application Development
+                        </option>
+                    </select>
+                </div>
+
+                <!--Questions regarding the professor.-->
+                <p class="sectionHeader">Choose one option for every question below regarding the professor.</p>
+
+                <table class="table table-border table-striped table-condensed">
+                    <thead>
+                        <tr>
+                            <td></td>
+                            <td class="text-center">Strongly Agree</td>
+                            <td class="text-center" data-align>Agree</td>
+                            <td class="text-center">Neutral</td>
+                            <td class="text-center">Disagree</td>
+                            <td class="text-center">Strongly Disagree</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <!--Radio buttons in a group all must have the same "name" attribute value-->
+                            <td>The professor demonstrated knowledge of the subject matter.</td>
+                            <td class="text-center"><input name="profQuestion0" type="radio" courseQuestionsid="PQ0StronglyAgree" value="Strongly Agree"></td>
+                            <td class="text-center"><input name="profQuestion0" type="radio" courseQuestionsid="PQ0Agree" value="Agree"></td>
+                            <td class="text-center"><input name="profQuestion0" type="radio" courseQuestionsid="PQ0Neutral" value="Neutral"></td>
+                            <td class="text-center"><input name="profQuestion0" type="radio" courseQuestionsid="PQ0Disagree" value="Disagree"></td>
+                            <td class="text-center"><input name="profQuestion0" type="radio" courseQuestionsid="PQ0StronlyDisagree" value="Strongly Disagree"></td>
+                        </tr>
+                        <tr>
+                            <td>The professor was effective in communicating the content of the course.</td>
+                            <td class="text-center"><input name="profQuestion1" type="radio" courseQuestionsid="PQ1StronglyAgree" value="Strongly Agree"></td>
+                            <td class="text-center"><input name="profQuestion1" type="radio" courseQuestionsid="PQ1Agree" value="Agree"></td>
+                            <td class="text-center"><input name="profQuestion1" type="radio" courseQuestionsid="PQ1Neutral" value="Neutral"></td>
+                            <td class="text-center"><input name="profQuestion1" type="radio" courseQuestionsid="PQ1Disagree" value="Disagree"></td>
+                            <td class="text-center"><input name="profQuestion1" type="radio" courseQuestionsid="PQ1StronlyDisagree" value="Strongly Disagree"></td>
+                        </tr>
+                        <tr>
+                            <td>The professor communicated objectives and requirements clearly.</td>
+                            <td class="text-center"><input name="profQuestion2" type="radio" courseQuestionsid="PQ2StronglyAgree" value="Strongly Agree"></td>
+                            <td class="text-center"><input name="profQuestion2" type="radio" courseQuestionsid="PQ2Agree" value="Agree"></td>
+                            <td class="text-center"><input name="profQuestion2" type="radio" courseQuestionsid="PQ2Neutral" value="Neutral"></td>
+                            <td class="text-center"><input name="profQuestion2" type="radio" courseQuestionsid="PQ2Disagree" value="Disagree"></td>
+                            <td class="text-center"><input name="profQuestion2" type="radio" courseQuestionsid="PQ2StronlyDisagree" value="Strongly Disagree"></td>
+                        </tr>
+                        <tr>
+                            <td>The professor encouraged feedback from the class.</td>
+                            <td class="text-center"><input name="profQuestion3" type="radio" courseQuestionsid="PQ3StronglyAgree" value="Strongly Agree"></td>
+                            <td class="text-center"><input name="profQuestion3" type="radio" courseQuestionsid="PQ3Agree" value="Agree"></td>
+                            <td class="text-center"><input name="profQuestion3" type="radio" courseQuestionsid="PQ3Neutral" value="Neutral"></td>
+                            <td class="text-center"><input name="profQuestion3" type="radio" courseQuestionsid="PQ3Disagree" value="Disagree"></td>
+                            <td class="text-center"><input name="profQuestion3" type="radio" courseQuestionsid="PQ3StronlyDisagree" value="Strongly Disagree"></td>
+                        </tr>
+                        <tr>
+                            <td>The professor was accessible and willing to provide help.</td>
+                            <td class="text-center"><input name="profQuestion4" type="radio" courseQuestionsid="PQ4StronglyAgree" value="Strongly Agree"></td>
+                            <td class="text-center"><input name="profQuestion4" type="radio" courseQuestionsid="PQ4Agree" value="Agree"></td>
+                            <td class="text-center"><input name="profQuestion4" type="radio" courseQuestionsid="PQ4Neutral" value="Neutral"></td>
+                            <td class="text-center"><input name="profQuestion4" type="radio" courseQuestionsid="PQ4Disagree" value="Disagree"></td>
+                            <td class="text-center"><input name="profQuestion4" type="radio" courseQuestionsid="PQ4StronlyDisagree" value="Strongly Disagree"></td>
+                        </tr>
+                        <tr>
+                            <td>The professor showed genuine concern for the students.</td>
+                            <td class="text-center"><input name="profQuestion5" type="radio" courseQuestionsid="PQ5StronglyAgree" value="Strongly Agree"></td>
+                            <td class="text-center"><input name="profQuestion5" type="radio" courseQuestionsid="PQ5Agree" value="Agree"></td>
+                            <td class="text-center"><input name="profQuestion5" type="radio" courseQuestionsid="PQ5Neutral" value="Neutral"></td>
+                            <td class="text-center"><input name="profQuestion5" type="radio" courseQuestionsid="PQ5Disagree" value="Disagree"></td>
+                            <td class="text-center"><input name="profQuestion5" type="radio" courseQuestionsid="PQ5StronlyDisagree" value="Strongly Disagree"></td>
+                        </tr>
+                        <tr>
+                            <td>The professor was enthusiastic about the course.</td>
+                            <td class="text-center"><input name="profQuestion6" type="radio" courseQuestionsid="PQ6StronglyAgree" value="Strongly Agree"></td>
+                            <td class="text-center"><input name="profQuestion6" type="radio" courseQuestionsid="PQ6Agree" value="Agree"></td>
+                            <td class="text-center"><input name="profQuestion6" type="radio" courseQuestionsid="PQ6Neutral" value="Neutral"></td>
+                            <td class="text-center"><input name="profQuestion6" type="radio" courseQuestionsid="PQ6Disagree" value="Disagree"></td>
+                            <td class="text-center"><input name="profQuestion6" type="radio" courseQuestionsid="PQ6StronlyDisagree" value="Strongly Disagree"></td>
+                        </tr>
+                        <tr>
+                            <td>Would you recommend this professor to other students?</td>
+                            <td class="text-center"><input name="profQuestion7" type="radio" courseQuestionsid="PQ7StronglyAgree" value="Strongly Agree"></td>
+                            <td class="text-center"><input name="profQuestion7" type="radio" courseQuestionsid="PQ7Agree" value="Agree"></td>
+                            <td class="text-center"><input name="profQuestion7" type="radio" courseQuestionsid="PQ7Neutral" value="Neutral"></td>
+                            <td class="text-center"><input name="profQuestion7" type="radio" courseQuestionsid="PQ7Disagree" value="Disagree"></td>
+                            <td class="text-center"><input name="profQuestion7" type="radio" courseQuestionsid="PQ7StronlyDisagree" value="Strongly Disagree"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!--List of questions regarding the course.-->
+                <p class="sectionHeader">Pleases choose one option for each question about the course.</p>
+
+                <table class="table table-border table-striped table-condensed">
+                    <thead>
+                        <tr>
+                            <td></td>
+                            <td class="text-center">Strongly Agree</td>
+                            <td class="text-center">Agree</td>
+                            <td class="text-center">Neutral</td>
+                            <td class="text-center">Disagree</td>
+                            <td class="text-center">Strongly Disagree</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>The lectures, tests, and assignments complemented each other.</td>
+                            <td class="text-center"><input name="courseQuestion0" type="radio" courseQuestionsid="CQ0stronglyAgree" value="Strongly Agree"></td>
+                            <td class="text-center"><input name="courseQuestion0" type="radio" courseQuestionsid="CQ0agree" value="Agree"></td>
+                            <td class="text-center"><input name="courseQuestion0" type="radio" courseQuestionsid="CQ0neutral" value="Neutral"></td>
+                            <td class="text-center"><input name="courseQuestion0" type="radio" courseQuestionsid="CQ0disagree" value="Disagree"></td>
+                            <td class="text-center"><input name="courseQuestion0" type="radio" courseQuestionsid="CQ0stronglyDisagree" value="Strongly Disagree"></td>
+                        <tr>
+                            <td>The instructional materials (i.e. books, readings, handouts, study guides, lab manuals, multimedia, software) increased my knowledge and skills in the subject matter.</td>
+                            <td class="text-center"><input name="courseQuestion1" type="radio" courseQuestionsid="CQ1stronglyAgree" value="Strongly Agree"></td>
+                            <td class="text-center"><input name="courseQuestion1" type="radio" courseQuestionsid="CQ1agree" value="Agree"></td>
+                            <td class="text-center"><input name="courseQuestion1" type="radio" courseQuestionsid="CQ1neutral" value="Neutral"></td>
+                            <td class="text-center"><input name="courseQuestion1" type="radio" courseQuestionsid="CQ1disagree" value="Disagree"></td>
+                            <td class="text-center"><input name="courseQuestion1" type="radio" courseQuestionsid="CQ1stronglyDisagree" value="Strongly Disagree"></td>
+                        </tr>
+                        <tr>
+                            <td>The amount of reading you were asked to do was appropriate.</td>
+                            <td class="text-center"><input name="courseQuestion2" type="radio" courseQuestionsid="CQ2stronglyAgree" value="Strongly Agree"></td>
+                            <td class="text-center"><input name="courseQuestion2" type="radio" courseQuestionsid="CQ2agree" value="Agree"></td>
+                            <td class="text-center"><input name="courseQuestion2" type="radio" courseQuestionsid="CQ2neutral" value="Neutral"></td>
+                            <td class="text-center"><input name="courseQuestion2" type="radio" courseQuestionsid="CQ2disagree" value="Disagree"></td>
+                            <td class="text-center"><input name="courseQuestion2" type="radio" courseQuestionsid="CQ2stronglyDisagree" value="Strongly Disagree"></td>
+                        </tr>
+                        <tr>
+                            <td>The course was organized in a manner that helped me understand the underlying concepts.</td>
+                            <td class="text-center"><input name="courseQuestion3" type="radio" courseQuestionsid="CQ3stronglyAgree" value="Strongly Agree"></td>
+                            <td class="text-center"><input name="courseQuestion3" type="radio" courseQuestionsid="CQ3agree" value="Agree"></td>
+                            <td class="text-center"><input name="courseQuestion3" type="radio" courseQuestionsid="CQ3neutral" value="Neutral"></td>
+                            <td class="text-center"><input name="courseQuestion3" type="radio" courseQuestionsid="CQ3disagree" value="Disagree"></td>
+                            <td class="text-center"><input name="courseQuestion3" type="radio" courseQuestionsid="CQ3stronglyDisagree" value="Strongly Disagree"></td>
+                        </tr>
+                        <tr>
+                            <td>The course gave me the confidence to do more advanced work in the subject.</td>
+                            <td class="text-center"><input name="courseQuestion4" type="radio" courseQuestionsid="CQ4stronglyAgree" value="Strongly Agree"></td>
+                            <td class="text-center"><input name="courseQuestion4" type="radio" courseQuestionsid="CQ4agree" value="Agree"></td>
+                            <td class="text-center"><input name="courseQuestion4" type="radio" courseQuestionsid="CQ4neutral" value="Neutral"></td>
+                            <td class="text-center"><input name="courseQuestion4" type="radio" courseQuestionsid="CQ4disagree" value="Disagree"></td>
+                            <td class="text-center"><input name="courseQuestion4" type="radio" courseQuestionsid="CQ4stronglyDisagree" value="Strongly Disagree"></td>
+                        </tr>
+                        <tr>
+                            <td>The examinations, projects measured my knowledge of the course material.</td>
+                            <td class="text-center"><input name="courseQuestion5" type="radio" courseQuestionsid="CQ5stronglyAgree" value="Strongly Agree"></td>
+                            <td class="text-center"><input name="courseQuestion5" type="radio" courseQuestionsid="CQ5agree" value="Agree"></td>
+                            <td class="text-center"><input name="courseQuestion5" type="radio" courseQuestionsid="CQ5neutral" value="Neutral"></td>
+                            <td class="text-center"><input name="courseQuestion5" type="radio" courseQuestionsid="CQ5disagree" value="Disagree"></td>
+                            <td class="text-center"><input name="courseQuestion5" type="radio" courseQuestionsid="CQ5stronglyDisagree" value="Strongly Disagree"></td>
+                        </tr>
+                        <tr>
+                            <td>The grading practices were clearly defined.</td>
+                            <td class="text-center"><input name="courseQuestion6" type="radio" courseQuestionsid="CQ6stronglyAgree" value="Strongly Agree"></td>
+                            <td class="text-center"><input name="courseQuestion6" type="radio" courseQuestionsid="CQ6agree" value="Agree"></td>
+                            <td class="text-center"><input name="courseQuestion6" type="radio" courseQuestionsid="CQ6neutral" value="Neutral"></td>
+                            <td class="text-center"><input name="courseQuestion6" type="radio" courseQuestionsid="CQ6disagree" value="Disagree"></td>
+                            <td class="text-center"><input name="courseQuestion6" type="radio" courseQuestionsid="CQ6stronglyDisagree" value="Strongly Disagree"></td>
+                        </tr>
+                        <tr>
+                            <td>The grading of the course was fair.</td>
+                            <td class="text-center"><input name="courseQuestion7" type="radio" courseQuestionsid="CQ7stronglyAgree" value="Strongly Agree"></td>
+                            <td class="text-center"><input name="courseQuestion7" type="radio" courseQuestionsid="CQ7agree" value="Agree"></td>
+                            <td class="text-center"><input name="courseQuestion7" type="radio" courseQuestionsid="CQ7neutral" value="Neutral"></td>
+                            <td class="text-center"><input name="courseQuestion7" type="radio" courseQuestionsid="CQ7disagree" value="Disagree"></td>
+                            <td class="text-center"><input name="courseQuestion7" type="radio" courseQuestionsid="CQ7stronglyDisagree" value="Strongly Disagree"></td>
+                        </tr>
+                        <tr>
+                            <td>I believe that what I’m being asked to learn in this course is important.</td>
+                            <td class="text-center"><input name="courseQuestion8" type="radio" courseQuestionsid="CQ8stronglyAgree" value="Strongly Agree"></td>
+                            <td class="text-center"><input name="courseQuestion8" type="radio" courseQuestionsid="CQ8agree" value="Agree"></td>
+                            <td class="text-center"><input name="courseQuestion8" type="radio" courseQuestionsid="CQ8neutral" value="Neutral"></td>
+                            <td class="text-center"><input name="courseQuestion8" type="radio" courseQuestionsid="CQ8disagree" value="Disagree"></td>
+                            <td class="text-center"><input name="courseQuestion8" type="radio" courseQuestionsid="CQ8stronglyDisagree" value="Strongly Disagree"></td>
+                        </tr>
+                        <tr>
+                            <td>I would highly recommend this course to other students.</td>
+                            <td class="text-center"><input name="courseQuestion9" type="radio" courseQuestionsid="CQ9stronglyAgree" value="Strongly Agree"></td>
+                            <td class="text-center"><input name="courseQuestion9" type="radio" courseQuestionsid="CQ9agree" value="Agree"></td>
+                            <td class="text-center"><input name="courseQuestion9" type="radio" courseQuestionsid="CQ9neutral" value="Neutral"></td>
+                            <td class="text-center"><input name="courseQuestion9" type="radio" courseQuestionsid="CQ9disagree" value="Disagree"></td>
+                            <td class="text-center"><input name="courseQuestion9" type="radio" courseQuestionsid="CQ9stronglyDisagree" value="Strongly Disagree"></td>
+                        </tr>
+                        <tr>
+                            <td>The course was helpful in progress toward my degree.</td>
+                            <td class="text-center"><input name="courseQuestion10" type="radio" courseQuestionsid="CQ10stronglyAgree" value="Strongly Agree"></td>
+                            <td class="text-center"><input name="courseQuestion10" type="radio" courseQuestionsid="CQ10agree" value="Agree"></td>
+                            <td class="text-center"><input name="courseQuestion10" type="radio" courseQuestionsid="CQ10neutral" value="Neutral"></td>
+                            <td class="text-center"><input name="courseQuestion10" type="radio" courseQuestionsid="CQ10disagree" value="Disagree"></td>
+                            <td class="text-center"><input name="courseQuestion10" type="radio" courseQuestionsid="CQ10stronglyDisagree" value="Strongly Disagree"></td>
+                        </tr>
+                        <tr>
+                            <td>Overall, this course met my expectations for the quality of the course.</td>
+                            <td class="text-center"><input name="courseQuestion11" type="radio" courseQuestionsid="CQ11stronglyAgree" value="Strongly Agree"></td>
+                            <td class="text-center"><input name="courseQuestion11" type="radio" courseQuestionsid="CQ11agree" value="Agree"></td>
+                            <td class="text-center"><input name="courseQuestion11" type="radio" courseQuestionsid="CQ11neutral" value="Neutral"></td>
+                            <td class="text-center"><input name="courseQuestion11" type="radio" courseQuestionsid="CQ11disagree" value="Disagree"></td>
+                            <td class="text-center"><input name="courseQuestion11" type="radio" courseQuestionsid="CQ11stronglyDisagree" value="Strongly Disagree"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </main>
+    </div>
+    <script>
+        "use strict";
+
+        function SubmitSurvey() {
+
+            // SubmitSurvey() will validate whether some button has been checked for every question. 
+            //   It will also validate the Student Name, Student Id, and Course selections are not blank.
+            //   Once all questions have been answered, the form will be submitted to the ASPX page on the server.
+            //   Otherwise an alert will be raised to complete all questions on the survey.
+            // Notes:
+            // Array.from() Creates a new Array from an array-like or iterable object.
+            // Array.prototype.some() Returns true if at least one element in this Array satisfies the provided testing function.
+            // Array.prototype.every() Returns true if every element in this Array satisfies the testing function.
+            // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+            var profQuestionsChecked = [];
+            let numProfQuestions = [0, 1, 2, 3, 4, 5, 6, 7];
+            // "Some" button from the group of buttons needs to be checked.
+            numProfQuestions.forEach(num => {
+                profQuestionsChecked.push(
+                    Array.from(document.getElementsByName("profQuestion" + (num).toString()))
+                         .some(btn => { return btn.checked == true; }));
+            }); 
+
+
+            // "Every" group of buttons (ie. survey questions) needs to have some button checked.
+            var everyProfQuestionChecked = profQuestionsChecked.every(check => { return check == true; });
+
+            var courseQuestionsChecked = [];
+            let numCourseQuestions = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+            numCourseQuestions.forEach(num => {
+                courseQuestionsChecked.push(
+                    Array.from(document.getElementsByName("courseQuestion" + (num).toString()))
+                         .some(btn => { return btn.checked == true; }));
+            }); 
+
+            var everyCourseQuestionChecked = courseQuestionsChecked.every(check => { return check == true; });
+
+            if (document.getElementById("studentName").value !== "" &&
+                document.getElementById("studentId").value !== "" &&
+                document.getElementById("course").value !== "-- Select a Course --" &&
+                everyProfQuestionChecked &&
+                everyCourseQuestionChecked) {
+                document.getElementById("surveyForm").submit();
+            }
+            else {
+                alert("Please respond to all questions.")
+            }
+        }
+    </script>
+</body>
+</html>

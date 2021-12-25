@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   width="28in"
+   height="3.5in"
+   viewBox="0 0 711.2 88.9"
+   version="1.1"
+   id="svg8">
+  <defs
+     id="defs2">
+    <rect
+       x="42.655487"
+       y="27.144402"
+       width="35.675499"
+       height="34.512165"
+       id="rect881" />
+    <rect
+       x="114.00648"
+       y="25.205515"
+       width="194.27637"
+       height="31.022173"
+       id="rect865" />
+    <linearGradient
+       id="linearGradient857">
+      <stop
+         style="stop-color:#247bff;stop-opacity:1"
+         offset="0"
+         id="stop853" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1"
+         offset="1"
+         id="stop855" />
+    </linearGradient>
+    <linearGradient
+       xlink:href="#linearGradient857"
+       id="linearGradient861"
+       gradientUnits="userSpaceOnUse"
+       x1="-0.0087233484"
+       y1="44.012707"
+       x2="355.98813"
+       y2="44.012707"
+       gradientTransform="matrix(1.984477,0,0,0.90562942,2.1716178,4.4825637)" />
+  </defs>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1">
+    <rect
+       style="mix-blend-mode:normal;fill:url(#linearGradient861);fill-opacity:1;stroke:#247cff;stroke-width:1.91446;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect851"
+       width="704.8938"
+       height="80.420776"
+       x="2.9411528"
+       y="4.131381"
+       transform="matrix(0.99999936,-0.00113145,0.00543292,0.99998524,0,0)"
+       rx="10.070535"
+       ry="9.1064863" />
+    <text
+       xml:space="preserve"
+       id="text863"
+       style="font-style:normal;font-weight:normal;font-size:25.4px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect865);fill:#ffffff;fill-opacity:1;stroke:none;"
+       transform="translate(-40.588265,3.1492625)"><tspan
+         x="114.00586"
+         y="48.378268"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.4px;font-family:corbel;-inkscape-font-specification:corbel;fill:#ffffff;fill-opacity:1">Online Survey</tspan></tspan></text>
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke:#dcf0f6;stroke-width:0.793001;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.807843"
+       id="path877"
+       cx="40.282757"
+       cy="44.026485"
+       rx="22.297186"
+       ry="21.715521" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:50.8px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="23.367405"
+       y="56.870178"
+       id="text4866"><tspan
+         id="tspan4864"
+         x="23.367405"
+         y="56.870178"
+         style="font-size:50.8px;stroke-width:0.264583">✔</tspan></text>
+  </g>
+</svg>
